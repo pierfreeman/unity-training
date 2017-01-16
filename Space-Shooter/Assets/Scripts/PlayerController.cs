@@ -13,14 +13,26 @@ public class PlayerController : MonoBehaviour {
     public float speed;
     public float tilt;
     public Boundary boundary;
+    public GameObject shot;
+    public Transform shotSpawn;
+    public float fireRate;
 
     private Rigidbody rb;
+    private float nextFire;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown("space") && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);    
+        }
+    }
 
     void FixedUpdate()
     {
