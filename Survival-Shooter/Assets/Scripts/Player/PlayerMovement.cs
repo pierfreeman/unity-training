@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     int floorMask;
     float camRayLength = 100f;
 
-    //CAPIRE GET MASK
     void Awake()
     {
         floorMask = LayerMask.GetMask("Floor");
@@ -36,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
         playerRigidbody.MovePosition(transform.position + movement);
     }
 
-    //VEDERE DOCUMENTAZIONE E CAPIRE MEGLIO
     void Turning()
     {
         Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
